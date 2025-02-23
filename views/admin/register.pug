@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Servapa Services
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    .container
+      h1#site-name.text-center.my-4
+        a(href="/") Servapa Services
+      .row
+        .col-md-6.offset-md-3
+          .card.shadow.p-4.my-4
+            h2.page-title.text-center Register New Admin
+            form(method="post", action="/admin/register")
+              .mb-3
+                label.form-label(for="username") Username:
+                input.form-control(type="text", id="username", name="username", required)
+              .mb-3
+                label.form-label(for="password") Password:
+                input.form-control(type="password", id="password", name="password", required)
+              button.btn.btn-primary.w-100(type="submit") Register
+            p.text-center.mt-3
+              | Already have an account? 
+              a(href="/admin/login") Click here to login
+
+      footer#footer.text-center.mt-5
+        p © Copyright Servapa, 2025.

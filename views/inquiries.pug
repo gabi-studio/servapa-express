@@ -1,0 +1,38 @@
+extends common/layout
+
+block main-content 
+  .main-content  
+    .container.my-5
+        h1.page-title.mb-4 Inquiries
+        .col-md-12
+          .list-group.mb-4
+            each inquiry in inquiriesList
+              .list-group-item.card.shadow.mb-3.p-3
+                h3.card-title #{inquiry.name}
+                p.card-text Email: #{inquiry.email}
+                p.card-text Phone: #{inquiry.phone}
+                p.card-text Message: #{inquiry.message}
+    
+                a.btn.btn-danger.btn-sm.mt-2(href=`/inquiries/delete/${inquiry._id}`) Delete this Inquiry
+
+        h2.mb-3 Record an Inquiry
+        .col-md-12
+          .card.shadow.p-4.mb-4
+            form(method="POST", action="/inquiries/add")
+              .mb-3
+                label.form-label(for="name") Name:
+                input.form-control(type="text", name="name", id="name", placeholder="Enter name", required)
+              .mb-3
+                label.form-label(for="email") Email:
+                input.form-control(type="email", name="email", id="email", placeholder="Enter email", required)
+              .mb-3
+                label.form-label(for="phone") Phone:
+                input.form-control(type="text", name="phone", id="phone", placeholder="Enter phone number")
+              .mb-3
+                label.form-label(for="message") Message:
+                textarea.form-control(name="message", id="message", rows="4", placeholder="Enter message", required)
+              button.btn.btn-primary.w-100(type="submit") Submit Inquiry
+
+
+
+

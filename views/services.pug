@@ -1,0 +1,31 @@
+extends common/layout
+
+block main-content 
+  .main-content  
+    .container.my-5
+      h1.page-title.mb-4 Our Services
+      .col-md-12
+        .list-group.mb-5.d-grid.gap-2(style="grid-template-columns: repeat(2, 1fr); justify-content: start;")
+          each service in servicesList
+            .serviceItem.card.shadow.h-100(style="width: 22rem;")
+              img.card-img-top(src=`/images/${service.imagePath}`, alt=`${service.name}`)
+              .card-body
+                h2.card-title.text-primary.text-center #{service.name}
+                p.card-text #{service.description}
+              .card-footer.text-center
+                a.btn.btn-danger.btn-sm(href=`/delete/${service.name}`) Delete this Service
+
+      h2.mb-5.mt-5 Add a Service
+      .col-md-12
+        .card.shadow.p-4.mb-4
+          form(method="POST", action="/services/add")
+            .mb-3
+              label.form-label(for="name") Name:
+              input.form-control(type="text", name="name", id="name", placeholder="Enter service name", required)
+            .mb-3
+              label.form-label(for="description") Description:
+              input.form-control(type="text", name="description", id="description", placeholder="Enter service description", required)
+            .mb-3
+              label.form-label(for="imagePath") Image Path:
+              input.form-control(type="text", name="imagePath", id="imagePath", placeholder="Enter image URL", required)
+            button.btn.btn-primary.w-100(type="submit") Add Service
