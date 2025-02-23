@@ -65,13 +65,7 @@ const register = async (request, response) => {
     }
 }
 
-const isAdmin = (request, response, next) => {
-    if (req.session && req.session.loggedIn) {
-        res.redirect("/admin/dashboard")
-    } else {
-        res.redirect("/admin/login");
-    }
-};
+
 
 module.exports = {
     getAdmin,
@@ -79,6 +73,5 @@ module.exports = {
     login,
     logout,
     registerForm,
-    register,
-    isAdmin
+    register
 };
