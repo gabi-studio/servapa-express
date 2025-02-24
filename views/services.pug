@@ -9,6 +9,7 @@ block main-content
           each service in servicesList
             .serviceItem.card.shadow.h-100(style="width: 22rem;")
               img.card-img-top(src=`/images/${service.imagePath}`, alt=`${service.name}`)
+              //- all service images generated from midjourney
               .card-body
                 h2.card-title.text-center #{service.name}
                 p.card-text #{service.description}
