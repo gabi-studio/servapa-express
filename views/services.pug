@@ -10,10 +10,10 @@ block main-content
             .serviceItem.card.shadow.h-100(style="width: 22rem;")
               img.card-img-top(src=`/images/${service.imagePath}`, alt=`${service.name}`)
               .card-body
-                h2.card-title.text-primary.text-center #{service.name}
+                h2.card-title.text-center #{service.name}
                 p.card-text #{service.description}
               .card-footer.text-center
-                a.btn.btn-danger.btn-sm(href=`/delete/${service.name}`) Delete this Service
+                a.btn.btn-danger.btn-sm(href=`/services/delete/${service.name}`) Delete this Service
 
       h2.mb-5.mt-5 Add a Service
       .col-md-12
